@@ -1,0 +1,127 @@
+{% load static %}
+<!-- The Modal -->
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Hello Everyone</h4>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+        ></button>
+      </div>
+
+
+
+      <!-- Modal body -->
+      <div class="modal-body">
+
+        <div class="card" style="width:100%">
+          <img class="card-img-top" src="{% static 'assets/img/code.png' %}" alt="Card image cap">
+          <div class="card-body">
+            <p class="card-text">
+              Hello. I am Sahil Mehdiyev. I have completed my undergraduate
+              education in Computer Engineering this year. I would like to state
+              that I was always busy improving myself while I was a student. I am in
+              a profession that has always been my dream, and technologies are
+              constantly being renewed and we have to keep up with it. I have been
+              interested in web development since the second grade, but I also took
+              great interest in courses such as artificial intelligence, deep
+              learning, and system programming. In my graduation project, I created
+              an expert support system that classifies hand and wrist x-rays using
+              deep learning methods. This has been an enriching experience. Now I am
+              still very interested in web development. After graduating from
+              school, I decided to get a master's degree in electrical and
+              electronic engineering in the field of engineering and I am still
+              continuing this education.
+            </p>
+          </div>
+        </div>
+       
+
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title text-center">Github</h5>
+                <p class="card-text">
+                  You can review the codes of all the projects I have done so
+                  far by clicking the link below.
+                </p>
+                <a href="https://github.com/SahilMehdiyev" class="btn btn-outline-primary"
+                  >Github</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title text-center">Resume</h5>
+                <p class="card-text">
+                  There is my own CV in this file, you can download it by
+                  clicking.
+                </p>
+                <a href="downloadFile" class="btn btn-outline-primary">Download CV</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======= About Section ======= -->
+<section id="about" class="about">
+  <div class="container" data-aos="fade-up">
+    <div class="row gx-0">
+      {% for content in contents %}
+      <div
+        class="col-lg-6 d-flex flex-column justify-content-center"
+        data-aos="fade-up"
+        data-aos-delay="200"
+      >
+        <div class="content">
+          <h3>{{content.header}}</h3>
+          <h2>{{content.detail}}</h2>
+          <p>{{content.text}}</p>
+          <div class="text-center text-lg-start">
+            <a style="cursor: pointer;"
+              class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center;"
+              data-bs-toggle="modal"
+              data-bs-target="#myModal"
+            >
+              <span>Read More</span>
+              <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div
+        class="col-lg-6 d-flex align-items-center"
+        data-aos="zoom-out"
+        data-aos-delay="200"
+      >
+        <img
+          src="{% static 'assets/img/2.jpeg' %} "
+          class="rounded img-fluid"
+          alt=""
+        />
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End About Section -->
