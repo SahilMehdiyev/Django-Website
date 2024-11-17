@@ -23,23 +23,20 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECRET_KEY = 'django-insecure-oak2*payh0fx3)dnpe2^(=@_@4!m@4du!_5e*kd0$%*9_^%_mf'
-SECRET_KEY = getenv("SECRET_KEY")
+from dotenv import load_dotenv
+import os
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = getenv("IS_DEVELOPMENT", True)
+load_dotenv()
 
-ALLOWED_HOSTS = [getenv("APP_HOST")]
+EMAIL_HOST = os.getenv('EMAIL_HOST')
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+EMAIL_PORT = os.getenv('EMAIL_PORT', 587)  # Varsayılan değeri 587 olarak ayarlıyoruz
+EMAIL_USE_TLS = os.getenv('EMAIL_USE_TLS', 'True') == 'True'
 
-
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# SMTP ayarları
-EMAIL_HOST = 'smtp.gmail.com'
-# E-posta hesabı kimlik bilgileri
-EMAIL_HOST_USER = 'sahil.mehdiyev2000@gmail.com'
-EMAIL_HOST_PASSWORD = 'vnlx ekrr ggbg lgjl'   
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-# EMAIL_USE_SSL = True
+SECRET_KEY = os.getenv("SECRET_KEY")
+DEBUG = os.getenv("IS_DEVELOPMENT", "True") == "True"
+ALLOWED_HOSTS = [os.getenv("APP_HOST")]
 
 
 
